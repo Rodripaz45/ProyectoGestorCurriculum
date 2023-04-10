@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Currículums</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/734c6f7cde.js" crossorigin="anonymous"></script>
+    
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Tipografía */
+      body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      /* Encabezado */
+      header {
+        background-color: #222;
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav a {
+        display: block;
+        margin-left: 1.5rem;
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.2s ease-in-out;
+      }
+
+      .nav a:hover {
+        color: #ccc;
+      }
+      
+
+      /* Formulario */
+      form {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      form h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #222;
+      }
+
+      form label {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #222;
+      }
+
+      form input[type="text"],
+      form input[type="email"],
+      form input[type="password"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
+
+      form button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        margin-top: 1rem;
+        border: none;
+        border-radius: 3px;
+        background-color: #222;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      form button[type="submit"]:hover {
+        background-color: #111;
+      }
+
+      /* Secciones */
+      section {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #eee;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      section h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #222;
+      }
+
+      section p {
+        color: #555;
+      }
+
+      /* Pie de página */
+      footer {
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-links {
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-links a {
+        display: block;
+        margin-left: 1.5rem;
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.2s ease-in-out;
+      }
+
+      .footer-links a:hover {
+        color: #ccc;
+      }
+
+      .icon {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+      }
+
+
+
+      /* Agrega estos estilos CSS para solucionar el problema */
+      .dark-mode form label,
+      .dark-mode section {
+        background-color: #2b2b2b;
+        color: #fff;
+      }
+
+      /* Estilos para modo nocturno */
+      .dark-mode {
+        background-color: #1e1e1e;
+        color: #fff;
+      }
+
+      .dark-mode form label,
+      .dark-mode section {
+        background-color: #2b2b2b;
+        color: #fff;
+      }
+
+      .dark-mode nav {
+        background-color: #2b2b2b;
+      }
+
+      .dark-mode a {
+        color: #fff;
+      }
+
+      .dark-mode button {
+        background-color: #fff;
+        color: #000;
+        border: 2px solid #000;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* Estilos para el botón de modo nocturno */
+      nav #dark-mode-button {
+        margin: 16px;
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      nav #dark-mode-button:hover {
+        background-color: #fff;
+        color: #000;
+      }
+
+      .dark-mode form {
+        background-color: #2b2b2b;
+        color: #fff;
+      }
+
+      .dark-mode nav a {
+        color: #fff;
+      }
+
+      .dark-mode h2 {
+        color: #fff;
+      }
+
+      .dark-mode p {
+        color: #fff;
+      }
+      
+    </style>
+ 
+  </head>
+  <body class="bg-gray-200">
+      <header>
+        <div class="header-inner">
+          <div class="logo">
+            <i class="fas fa-briefcase icon"></i>Gestor de Currículums
+          </div>
+            <nav class="nav">
+              <a href="/login">Iniciar sesión</a>
+              <a href="/register">Registrarse</a>
+              <a class="logout" href="/logout" style="background-color: rgb(255, 55, 55); padding:8px; border-radius:5px;">Logout</a>
+              <button id="dark-mode-button"><i class="fas fa-moon"></i></button>
+            </nav>
+        </div>
+      </header>
+      <main>
+        {{{body}}}
+        <section>
+          <h2>Mis Currículums</h2>
+          <p>En esta sección podrás ver y gestionar tus currículums:</p>
+          <ul>
+            <li>Curriculum 1</li>
+            <li>Curriculum 2</li>
+            <li>Curriculum 3</li>
+          </ul>
+        </section>
+      </main>
+      <footer>
+        <div class="footer-inner">
+          <div class="footer-text">© 2023 Gestor de Currículums</div>
+          <div class="footer-links">
+            <a href="#">Acerca de nosotros</a>
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Política de privacidad</a>
+          </div>
+        </div>
+      </footer>
+      <script>
+        const body = document.querySelector('body'); // Selecciona el elemento body
+        const darkModeButton = document.querySelector('#dark-mode-button'); // Selecciona el botón de modo nocturno
+
+        // Agrega un event listener al botón para cambiar el modo de la página
+        darkModeButton.addEventListener('click', () => {
+          body.classList.toggle('dark-mode'); // Alterna la clase 'dark-mode' en el body
+        });
+      </script>
+      <script src="app.js"></script>
+      <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+  </body>
+</html>

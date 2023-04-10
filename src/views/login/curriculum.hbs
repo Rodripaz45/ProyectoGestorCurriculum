@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestor de Curriculums</title>
+    <style type="text/css">
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+        }
+
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 36px;
+          font-weight: bold;
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        h2 {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+        .form-group {
+          position: relative;
+          margin-bottom: 20px;
+        }
+    
+        .form-group label {
+           display: flex;
+           align-items: center;
+           font-size: 18px;
+           font-weight: bold;
+           margin-bottom: 5px;
+           margin-left: 0px;
+           color: #1e63b8;
+           min-width: 150px; /* ajusta el ancho mínimo según tus necesidades */
+        }
+
+
+
+        .form-group i {
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 18px;
+            color: #1e63b8;
+            transition: transform 0.3s ease;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e63b8;
+        }
+
+        .form-group input:not(:placeholder-shown) + label i {
+            transform: translateY(-50%) scale(0.8);
+        }
+
+        .form-group textarea:not(:placeholder-shown) + label i {
+            transform: translateY(-50%) scale(0.8);
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #1e63b8;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #123456;
+        }
+
+        #curriculum {
+            margin-top: 50px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #curriculum h1 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #curriculum p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #curriculum p strong {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        #curriculum h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1e63b8;
+        }
+
+        #curriculum h3 i {
+            font-size: 16px;
+            margin-right: 5px;
+            color: #333;
+        }
+
+        #curriculum .section {
+            margin-bottom: 30px;
+        }
+
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .form-group label {
+                font-size: 16px;
+            }
+            .form-group i {
+                font-size: 16px;
+            }
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px;
+            }
+            button[type="submit"] {
+                font-size: 20px;
+            }
+            #curriculum h1 {
+                font-size: 20px;
+            }
+            #curriculum p {
+                font-size: 16px;
+            }
+            #curriculum h3 {
+                font-size: 18px;
+            }
+            #curriculum h3 i {
+                font-size:16px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form" method="post">
+        <div class="section">
+          <h2>Información Personal</h2>
+          <div class="form-group">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+          </div>
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+          </div>
+        </div>
+        <div class="section">
+          <h2>Experiencia Laboral</h2>
+          <div class="form-group">
+            <label for="trabajo1">Trabajo actual o más reciente:</label>
+            <input type="text" id="trabajo1" name="trabajo1" required>
+          </div>
+          <div class="form-group">
+            <label for="descripcion1">Descripción del trabajo:</label>
+            <textarea id="descripcion1" name="descripcion1" rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="trabajo2">Trabajo anterior:</label>
+            <input type="text" id="trabajo2" name="trabajo2">
+          </div>
+          <div class="form-group">
+            <label for="descripcion2">Descripción del trabajo:</label>
+            <textarea id="descripcion2" name="descripcion2" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="section">
+          <h2>Educación</h2>
+          <div class="form-group">
+            <label for="universidad">Universidad:</label>
+            <input type="text" id="universidad" name="universidad" required>
+          </div>
+          <div class="form-group">
+            <label for="titulo">Título obtenido:</label>
+            <input type="text" id="titulo" name="titulo" required>
+          </div>
+          <div class="form-group">
+            <label for="anio">Año de graduación:</label>
+            <input type="number"id="anio" name="anio" required>
+		      </div>
+		    </div>
+		    <div class="section">
+		      <h2>Habilidades</h2>
+		      <div class="form-group">
+		        <label for="habilidades">Lista de habilidades separadas por coma:</label>
+		        <input type="text" id="habilidades" name="habilidades" required>
+		      </div>
+		    </div>
+		    <button type="submit">Enviar</button>
+        {{#if error}}
+        <p style="color: rgb(231, 114, 114); font-weight:bold;padding:20px;">{{error}}</p>
+        {{/if}} 
+		    </form>
+        
+		</div>
+		<script src="https://kit.fontawesome.com/4b9ba14b0f.js" crossorigin="anonymous"></script>	
+    </body>
+</html>

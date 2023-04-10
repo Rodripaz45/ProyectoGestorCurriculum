@@ -1,0 +1,6 @@
+1. Abrir la carpeta "Gestor-Curriculum" en visual studio
+2. Abrir una nueva terminal y posicionarte en la carpeta "Gestor-Curriculum"
+3. Crea la base de datos con el archivo nodelogin.sql, en cualquier motor de mysql
+4. En la terminal escribir el comando "npm install" para instalar los modulos de node
+5. En la terminal escribir el comando "npm run dev" para ejecutar el proyecto, este se aloja en localhost:4000
+6. Modificar codigo en el archivo "app.js" lineas 28 a 35, escribe tus usuario, password, nombre de la bd y puerto para conectar con mysql
